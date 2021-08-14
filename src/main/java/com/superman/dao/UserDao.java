@@ -15,4 +15,6 @@ public interface UserDao {
     void delUser(Long id);
 
     void delRealation(Long id);
+
+    User login(String username, String password);
 }

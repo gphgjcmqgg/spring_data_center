@@ -45,4 +45,8 @@ public class UserServiceImpl implements UserService {
         userDao.delRealation(id);
         userDao.delUser(id);
     }
+
+    public User login(String username, String password) {
+        return userDao.login(username, password);
+    }
 }

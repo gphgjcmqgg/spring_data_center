@@ -11,4 +11,6 @@ public interface UserService {
     void save(User user, Long[] roleIds);
 
     void delUser(Long id);
+
+    User login(String username, String password);
 }
