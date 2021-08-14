@@ -30,4 +30,13 @@
     <bean id="roleService" class="com.superman.service.impl.RoleServiceImpl">
         <property name="roleDao" ref="roleDao"></property>
     </bean>
+
+    <bean id="userDao" class="com.superman.dao.impl.UserDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+
+    <bean id="userService" class="com.superman.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+        <property name="roleDao" ref="roleDao"></property>
+    </bean>
 </beans>
