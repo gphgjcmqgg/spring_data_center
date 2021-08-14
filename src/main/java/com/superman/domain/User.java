@@ -1,5 +1,7 @@
 package com.superman.domain;
 
+import java.util.List;
+
 public class User {
 
     private Long id;
@@ -7,6 +9,8 @@ public class User {
     private String email;
     private String password;
     private String phoneNum;
+
+    private List<Role> roles;
 
     public Long getId() {
         return id;

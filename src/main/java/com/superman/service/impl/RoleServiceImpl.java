@@ -19,4 +19,8 @@ public class RoleServiceImpl implements RoleService {
 
         return roleList;
     }
+
+    public void save(Role role) {
+        roleDao.save(role);
+    }
 }
