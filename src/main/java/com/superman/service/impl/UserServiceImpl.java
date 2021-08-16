@@ -5,6 +5,7 @@ import com.superman.dao.UserDao;
 import com.superman.domain.Role;
 import com.superman.domain.User;
 import com.superman.service.UserService;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.List;
 
@@ -47,6 +48,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public User login(String username, String password) {
-        return userDao.login(username, password);
+        User user = null;
+        try {
+            user =  userDao.login(username, password);
+        } catch (EmptyResultDataAccessException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

@@ -2,6 +2,7 @@ package com.superman.dao.impl;
 
 import com.superman.dao.UserDao;
 import com.superman.domain.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -66,7 +67,7 @@ public class UserDaoImpl implements UserDao {
         jdbcTemplate.update("delete from sys_user_role where userId=?", id);
     }
 
-    public User login(String username, String password) {
+    public User login(String username, String password) throws EmptyResultDataAccessException {
         User user = jdbcTemplate.queryForObject("select * from sys_user where username=? and password = ?", new BeanPropertyRowMapper<User>(User.class), username, password);
         return user;
     }
